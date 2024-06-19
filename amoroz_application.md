@@ -1,4 +1,4 @@
-Группа: 10 - МИ - 1
+Группа: 10 - МИ - 1 \
 Электронная почта: hockeymoroz@gmail.com
 Телеграмм: https://t.me/MorssssssiK
 VK: www.vk.com/alexmors
