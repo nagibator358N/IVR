@@ -1751,20 +1751,23 @@
         send_json_post_request("/user/add/",post_data,show_main_menu,(data)=>show_error(form,data.detail))
     }
     function show_registration_form(){
-        let content = get_main_content()
+        let content = get_main_content(["center_content"])
         let registration_form = document.createElement("form");
         let email = document.createElement("input");
         email.type = "email";
         email.setAttribute("name","email");
         email.setAttribute("required","true");
+        email.setAttribute("placeholder","email");
         let password = document.createElement("input");
         password.type = "password";
         password.setAttribute("name","password");
         password.setAttribute("required","true");
+        password.setAttribute("placeholder","пароль");
         let password_match = document.createElement("input");
         password_match.type = "password";
         password_match.setAttribute("name","password_match");
         password_match.setAttribute("required","true");
+        password_match.setAttribute("placeholder","повторный пароль");
         let registration_button = document.createElement("button");
         registration_button.type = "submit";
         registration_button.append("Зарегистрироваться");
