@@ -1,9 +1,11 @@
 /env/
-/__pycache__/
-/app/__pycache__/
 /app/database/__pycache__/
 /app/roters_my_quiz/__pycache__/
 /app/usermodels/__pycache__/
 /tests/__pycache__/
 /app/db/__pycache__/
 /app/constants/__pycache__/
+/test.db/
+/demo.db/
+/app/__pycache__/
+/__pycache__/
