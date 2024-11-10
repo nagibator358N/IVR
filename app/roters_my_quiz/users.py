@@ -100,6 +100,9 @@ async def update_user(response: Response, body: UpdateUserRequest, index: int):
                         "success": 0,
                         "error": constant.NO_NEW_PAS_AND_MAIL}
             if body.mail is not None:
+                if session.query(User).filter(User.email == body.mail).first():
+                    return {"success": 0,
+                            "error": constant.USED_EMAIL}
                 user.email = body.mail
             if body.new_password is not None:
                 if body.old_password is None:
