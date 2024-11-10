@@ -71,7 +71,7 @@ async def get_user_by_id(response: Response, index: int):
                 "success": 0,
                 "error": f"Пользователь с id {index} не существует"}
 
-# Получение поьзователя по email
+# Получение пользователя по email
 
 
 @router.get("/user/mail/{mail}", status_code=200)
@@ -101,6 +101,7 @@ async def update_user(response: Response, body: UpdateUserRequest, index: int):
                         "error": constant.NO_NEW_PAS_AND_MAIL}
             if body.mail is not None:
                 if session.query(User).filter(User.email == body.mail).first():
+                    response.status_code = 403
                     return {"success": 0,
                             "error": constant.USED_EMAIL}
                 user.email = body.mail

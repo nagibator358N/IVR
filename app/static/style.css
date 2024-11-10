@@ -22,7 +22,19 @@ button {
     background: #777;
     color: whitesmoke;
 }
-
+.help_q{
+    color: red;
+}
+.help_a{
+    color: green;
+    margin-bottom: 5px;
+}
+.help_q::before{
+    content: "Q: ";
+}
+.help_a::before{
+    content: "A: ";
+}
 /* Стиль для кнопок при наведении курсора */
 button:hover {
     background: #999;

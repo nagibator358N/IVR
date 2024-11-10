@@ -9,12 +9,16 @@ os.environ['TESTING'] = 'True'
 os.environ['SQLITE_TEST'] = SQLITE_DATABASE_URL_TEST
 
 new_user_correct = {"mail": "Admin8@gmail.com", "password": "Aboba2007!"}
+new_user_correct_2 = {"mail": "Admin4@gmail.com", "password": "Aboba2007!"}
 new_user_incorrect_email = {"mail": "Admin8", "password": "Aboba2007!"}
 new_user_incorrect_pass = {"mail": "Admin8@gmail.com", "password": "aboba2007"}
 new_user_incorrect_both = {"mail": "Admin8", "password": "aboba2007"}
-update_user_correct_all = {"mail": "Admin4@gmail.com",
+update_user_correct_all = {"mail": "Admin5@gmail.com",
                            "new_password": "Aboba2002!",
                            "old_password": "Aboba2007!"}
+update_user_used_em = {"mail": "Admin4@gmail.com",
+                       "new_password": "Aboba2002!",
+                       "old_password": "Aboba2007!"}
 update_user_without_data = {"mail": None,
                             "new_password": None,
                             "old_password": "Aboba2007!"}
@@ -47,6 +51,12 @@ def add_user():
         client.post("/user/add/", json=new_user_correct)
 
 
+@pytest.fixture()
+def add_user_2():
+    with TestClient(app) as client:
+        client.post("/user/add/", json=new_user_correct_2)
+
+
 def test_registration_correct(temp_db):
     with TestClient(app) as client:
         response = client.post("/user/add/", json=new_user_correct)
@@ -55,6 +65,16 @@ def test_registration_correct(temp_db):
     assert data["success"]
     assert data["data"]["id"] == 1
     assert data["data"]["email"] == new_user_correct["mail"]
+
+
+def test_registration_correct_2(temp_db, add_user):
+    with TestClient(app) as client:
+        response = client.post("/user/add/", json=new_user_correct_2)
+    assert response.status_code == 201
+    data = response.json()
+    assert data["success"]
+    assert data["data"]["id"] == 2
+    assert data["data"]["email"] == new_user_correct_2["mail"]
 
 
 def test_registration_incorrect_email_format(temp_db):
@@ -83,6 +103,12 @@ def test_update_user_correct(temp_db, add_user):
     assert data["success"]
     assert data["data"]["id"] == 1
     assert data["data"]["email"] == update_user_correct_all["mail"]
+
+
+def test_update_user_used_em(temp_db, add_user, add_user_2):
+    with TestClient(app) as client:
+        response = client.put("/user/update/1", json=update_user_used_em)
+    assert response.status_code == 403
 
 
 def test_update_user_without_data(temp_db, add_user):

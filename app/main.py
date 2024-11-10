@@ -10,12 +10,12 @@ from app.roters_my_quiz import useranswers, session
 from app.db.database import engine, Base
 app = FastAPI()
 
-app.include_router(users.router)
-app.include_router(tests.router)
-app.include_router(questions.router)
-app.include_router(questionanswers.router)
-app.include_router(useranswers.router)
-app.include_router(session.router)
+app.include_router(users.router, tags=["users"])
+app.include_router(tests.router, tags=["quizes"])
+app.include_router(questions.router, tags=["quiz_questions"])
+app.include_router(questionanswers.router, tags=["question_answers"])
+app.include_router(useranswers.router, tags=["user_answers"])
+app.include_router(session.router, tags=["quiz_session"])
 
 if not os.environ.get('TESTING', None):
     Base.metadata.create_all(bind=engine)

@@ -238,7 +238,7 @@ async def get_all_sesions_for_user(request: Request, user_id: int):
             )
         return {"success": 1, "data": list_sessions}
 
-# Получение вопросов в сесии для отображения результатов
+# Получение вопросов в сессии для отображения результатов
 
 
 @router.get("/questions_for_session/{session_id}")
@@ -276,7 +276,7 @@ async def get_results_for_session(request: Request, session_id: int):
         return {"success": 1, "data": data}
 
 
-# Получение вопросов в сесии для отображения статистики
+# Получение вопросов в сессии для отображения статистики
 @router.get("/question_for_session_creator/{session_id}")
 async def get_results_for_session_creator(request: Request, session_id: int):
     with SessionLocal() as db:
@@ -347,7 +347,7 @@ async def set_points(request: Request, response: Response,
         answer.answer_correct = True
         db.commit()
         return {"success": 1}
-# Получение сесии по id
+# Получение сессии по id
 
 
 @router.get("/get_session_by_id/{session_id}")
@@ -375,7 +375,7 @@ async def get_session_by_id(request: Request, session_id: int):
         }
     return {"success": 1, "data": data}
 
-# Получение средниих результатов и кол-ва попыток на тест
+# Получение средних результатов и кол-ва попыток на тест
 
 
 @router.get("/get_session_results_and_amount/{quiz_id}")
@@ -399,7 +399,7 @@ async def get_session_results_and_amount(request: Request, quiz_id: int):
         "session_amount": session_amount
     }}
 
-# Получение всех сесии юзера на тест
+# Получение всех сессий юзера на тест
 
 
 @router.get("/all_sessions/{user_id}/{quiz_id}")

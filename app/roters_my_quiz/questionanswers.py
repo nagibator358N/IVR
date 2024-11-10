@@ -20,7 +20,7 @@ async def add_answer(response: Response, body: AddQuestionAnswer):
         session.commit()
         return {"success": 1, "data": {"id": answer.id}}
 
-# Добавление варианта ответа на вопрос
+# Изменение варианта ответа на вопрос
 
 
 @router.put("/question/answer/{id}/update", status_code=201)
