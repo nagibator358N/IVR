@@ -1,0 +1,203 @@
+/* Стилизация всего сайта */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgb(192, 192, 192);
+    padding-top: 10px;
+}
+
+label {
+    display: block;
+}
+
+/* Стилизация кнопок */
+button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    background: #777;
+    color: whitesmoke;
+}
+
+/* Стиль для кнопок при наведении курсора */
+button:hover {
+    background: #999;
+}
+
+/* Стилизация элементов формы */
+form>* {
+    display: block;
+    width: 100%;
+    margin-bottom: 1ex;
+}
+
+/* Стилизация кнопок в форме */
+form button {
+    width: 100%;
+}
+
+/* Стилизация текстовых областей */
+textarea {
+    width: 75%;
+    height: 10em;
+    resize: none;
+}
+
+/* Стилизация списков */
+ul {
+    margin: 0;
+    list-style-type: decimal;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Стилизация элементов с левым отступом */
+.left-padding {
+    padding-left: 40px;
+}
+
+/* Стилизация элементов с нижним отступом */
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+/* Стилизация меню */
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 1.5em;
+}
+
+/* Стиль для пунктов меню при наведении курсора */
+.menu ul li:hover {
+    color: #777;
+    cursor: pointer;
+}
+
+/* Стилизация заголовков полей */
+.quiz-field-title::after {
+    content: ": ";
+}
+
+.session-field-title::after {
+    content: ": ";
+}
+
+.question_structure-field-title::after {
+    content: ": ";
+}
+
+.answer_structure-field-title::after {
+    content: ": ";
+}
+
+.question_results li {
+    margin-top: 5px;
+}
+
+.container_with_button button {
+    margin: 5px;
+}
+
+.btn_show_hint {
+    border: white;
+    background: none;
+}
+
+.btn_show_hint_div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Стилизация для центрирования содержимого */
+.center_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question_number {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    padding-right: 40px;
+}
+
+.answer_padding {
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+.quiz_session li {
+    margin-bottom: 10px;
+}
+
+.quiz_session li div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.quiz_session label {
+    display: inline;
+}
+
+.quiz_session ul {
+    list-style-type: none;
+}
+
+.my_profile * {
+    display: block;
+}
+
+.my_profile button {
+    margin-top: 5px;
+}
+
+/* Стилизация для выравнивания содержимого сверху и по центру */
+.top_center_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стилизация кнопок входа и регистрации */
+.btn_login,
+.btn_show_registration_form {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+/* Стилизация кнопки входа */
+.btn_login {
+    background: green;
+}
+
+/* Стиль для кнопки входа при наведении курсора */
+.btn_login:hover {
+    background: rgb(52, 86, 1);
+}
+
+/* Стилизация кнопки показа формы регистрации */
+.btn_show_registration_form {
+    background: rgb(138, 111, 111);
+}
+
+/* Стиль для кнопки показа формы регистрации при наведении курсора */
+.btn_show_registration_form:hover {
+    background: rgb(72, 52, 52);
+}
