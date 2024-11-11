@@ -157,7 +157,7 @@ function show_help(){
         a.classList.add("help_a");
         main_content.append(q,a);
     })
-    main_content.append(create_button_back_to_main_menu());
+    main_content.append(create_button_back_to_main_menu())
 }
 /* Функция для получения списка itemов для меню Мои тесты*/
 function get_list_item_my_tests_menu() {
@@ -1635,7 +1635,10 @@ function create_form_password() {
         }
     });
     let form = create_form([password_1, password_2, create_button_save(), create_button_remove_form(), message_error], { action: url, method: "PUT" }, [], { "submit": submit_form });
-    return form;
+    let div = document.createElement("div");
+    div.append(form);
+    div.classList.add("my_profile")
+    return div;
 }
 function create_form_email() {
     let email = create_input("email", "mail", '', "mail", ["data_to_send"]);
@@ -1643,7 +1646,10 @@ function create_form_email() {
     let url = "/user/update/" + index;
     let submit_form = create_submit_function(() => show_my_profile(), () => { });
     let form = create_form([email, create_button_save(), create_button_remove_form()], { action: url, method: "PUT" }, [], { "submit": submit_form });
-    return form;
+    let div = document.createElement("div");
+    div.append(form);
+    div.classList.add("my_profile")
+    return div;
 }
 function get_data_from_form(form) {
     let list_data_to_send = form.querySelectorAll(".data_to_send");
@@ -1771,10 +1777,14 @@ function create_login_form() {
     let user_password = create_input("password", "password", '', "password", ["data_to_send"], {}, { "placeholder": "пароль" });
     let login_button = create_button("Войти", { "type": "submit" }, ["btn_login"]);
     let error_message = document.createElement("div");
+    error_message.classList.add("max_width");
     let url = "/user/login/"
     let registrate_button = create_button("Зарегистрироваться", { "type": "button" }, ["btn_show_registration_form"], { "click": show_registration_form });
     let submit_form = create_submit_function(() => show_main_menu(), () => { });
-    return create_form([user_email, user_password, login_button, error_message, registrate_button], { action: url, method: "POST" }, [], { "submit": submit_form });
+    let form = create_form([user_email, user_password, login_button, error_message, registrate_button], { action: url, method: "POST" }, [], { "submit": submit_form });
+    let div = document.createElement("div");
+    div.append(form);
+    return div;
 }
 function create_item_menu(item) {
     let div = document.createElement("div");
@@ -1854,7 +1864,7 @@ function registration_function(event) {
     send_json_post_request("/user/add/", post_data, show_main_menu, (data) => show_error(form, data.detail))
 }
 function show_registration_form() {
-    let content = get_main_content(["center_content"])
+    let content = get_main_content(["center_content","max_width"])
     let registration_form = document.createElement("form");
     let email = document.createElement("input");
     email.type = "email";
