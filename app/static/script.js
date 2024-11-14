@@ -1134,7 +1134,7 @@ function show_question(data) {
     content.append(container);
 }
 function create_button_log_out() {
-    return create_button("Выйти из аккаунта", {}, [], {
+    return create_button("Сменить аккаунт", {}, [], {
         "click": (e) => {
             e.preventDefault();
             show_login_form();
