@@ -37,4 +37,30 @@ if not os.environ.get('TESTING', None):
         return FileResponse(file_path)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    log.info(f"Current working directory: {os.getcwd()}")
+    log.info(f"Python path: {os.environ.get('PYTHONPATH')}")
+
+    try:
+        if cfg.run_type == "local":
+            # !!! Запустить gunicorn на винде не получится (ибо нет fcntl)
+            # но можно запустить в docker контейнере для теста
+            uvicorn.run(
+                'main:app',
+                workers=2,
+            )
+        elif cfg.run_type == "dev" or cfg.run_type == "prod":
+            from core.gunicorn.app_options import get_app_options
+            from core.gunicorn.application import Application
+
+            Application(
+                application=app,
+                options=get_app_options(
+                    host=cfg.host,
+                    port=cfg.port,
+                    timeout=900,
+                    workers=cfg.workers,
+                    log_level=cfg.log_level,
+                ),
+            ).run()
+    except KeyboardInterrupt:
+        print("Приложение было остановлено.")
