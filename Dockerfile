@@ -8,6 +8,7 @@ ENV PYTHONPATH=/app/app
 COPY README.md /app
 COPY pyproject.toml /app
 RUN pip install --upgrade pip
+RUN curl -I https://pypi.org
 RUN pip install urllib3
 RUN pip install poetry
 RUN poetry config virtualenvs.in-project false
