@@ -1,4 +1,4 @@
-FROM python:3.12
+FROM python:3.11
 
 RUN mkdir app
 WORKDIR /app
@@ -8,6 +8,7 @@ ENV PYTHONPATH=/app/app
 COPY README.md /app
 COPY pyproject.toml /app
 RUN pip install --upgrade pip
+RUN pip install urllib3
 RUN pip install poetry
 RUN poetry config virtualenvs.in-project false
 #RUN poetry config virtualenvs.create false
