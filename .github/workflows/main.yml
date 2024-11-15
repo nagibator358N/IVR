@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
         run: flake8 .  
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: lint  # Запускаем тесты только после успешной проверки кодстиля
     steps:
       - name: Checkout code
@@ -52,7 +52,7 @@ jobs:
         run: pytest
 
   build_and_push:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: test  # Запускаем сборку и отправку образа только после успешного прохождения тестов
     steps:
       - name: Checkout code
