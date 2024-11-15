@@ -4,6 +4,7 @@ from app.config import get_config
 
 conf = get_config()
 
+
 class GunicornLogger(Logger):
     def setup(self, cfg) -> None:
         super().setup(cfg)
