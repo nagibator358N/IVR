@@ -8,6 +8,9 @@ from app.roters_my_quiz import users, tests, questions
 from app.roters_my_quiz import questionanswers
 from app.roters_my_quiz import useranswers, session
 from app.db.database import engine, Base
+from app.config import get_config
+
+cfg = get_config()
 app = FastAPI()
 
 app.include_router(users.router, tags=["users"])
