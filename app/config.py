@@ -1,8 +1,8 @@
-from functools import lru_cache
+# flake8: noqa
 
-# from nats.js.api import RetentionPolicy
+from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from typing import final, Optional, Literal
+from typing import final, Literal
 
 LOG_DEFAULT_FORMAT = "[%(asctime)s.%(msecs)03d] %(module)10s:%(lineno)-3d %(levelname)-7s - %(message)s"
 
