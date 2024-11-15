@@ -40,8 +40,8 @@ if not os.environ.get('TESTING', None):
         return FileResponse(file_path)
 
 if __name__ == "__main__":
-    log.info(f"Current working directory: {os.getcwd()}")
-    log.info(f"Python path: {os.environ.get('PYTHONPATH')}")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Python path: {os.environ.get('PYTHONPATH')}")
 
     try:
         if cfg.run_type == "local":
