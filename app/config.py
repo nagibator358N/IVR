@@ -15,7 +15,7 @@ class Settings(BaseSettings):
         case_sensitive=False,
     )
 
-    run_type: str = 'local'
+    run_type: str = 'prod'
     debug: bool = True
 
     log_level: Literal[
