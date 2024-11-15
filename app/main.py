@@ -52,8 +52,8 @@ if __name__ == "__main__":
                 workers=2,
             )
         elif cfg.run_type == "dev" or cfg.run_type == "prod":
-            from core.gunicorn.app_options import get_app_options
-            from core.gunicorn.application import Application
+            from app.gunicorn.app_options import get_app_options
+            from app.gunicorn.application import Application
 
             Application(
                 application=app,
