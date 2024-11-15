@@ -81,11 +81,10 @@ jobs:
 
       - name: Build and start docker containers
         run: |
-          sudo -S docker build -t backend_image .
-          sudo -S docker run -d \
+          docker build -t backend_image .
+          docker run -d \
           -v backend_data:/var/lib/backend_data \
           -p 8000:8000 \
-          --env-file /home/user/environment/.env \
           --name backend \
           --network appnet \
           --restart=always \
