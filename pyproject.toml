@@ -1,0 +1,27 @@
+[tool.poetry]
+name ="ivr_backend"
+version = "0.1.0"
+description = "Автотесты"
+authors = ["Саша <hockeymoroz@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ivr_backend"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["all"], version = "^0.111.1"}
+loguru = "^0.7.2"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.32"}
+alembic = "^1.13.1"
+asyncpg = "^0.29.0"
+redis = "^5.0.8"
+fastapi-utilities = "^0.2.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+psycopg2 = "^2.9.9"
+requests = "^2.32.3"
+gunicorn = "^23.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
