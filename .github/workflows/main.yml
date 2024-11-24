@@ -97,4 +97,4 @@ jobs:
           backend_image
 
       - name: Finish
-        run: echo "Deployment successful"
+        run: echo "Deployment successful!"
